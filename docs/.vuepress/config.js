@@ -2,6 +2,7 @@ module.exports = {
   title: 'Hello VuePress',
   description: 'Just playing around',
   themeConfig: {
+    base: '/notes/',
     nav: [
       { text: 'External', link: 'https://google.com', target:'_self', rel:'' },
       { text: 'JavaScript', link: '/JavaScript/', target:'_blank' },
