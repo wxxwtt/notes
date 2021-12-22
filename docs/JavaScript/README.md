@@ -42,7 +42,7 @@ sidebar: auto
   ```
 
 ## Array
-  0909
+  数组
 ## find
 
 ## filter
