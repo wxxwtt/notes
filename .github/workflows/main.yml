@@ -28,7 +28,7 @@ jobs:
     - name: Deploy notes/gh-pages
       uses: peaceiris/actions-gh-pages@v2
       env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACCESS_TOKEN }}
         PUBLISH_BRANCH: gh-pages #也可以在本项目notes新建gh-pages分支，名字一定要是gh-pages这样github page设置才能识别到这个分支，其他名字识别不到。https://help.github.com/cn/github/working-with-github-pages/creating-a-github-pages-site#creating-your-site
         PUBLISH_DIR: docs/.vuepress/dist
       with:
