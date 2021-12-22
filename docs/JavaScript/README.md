@@ -42,7 +42,7 @@ sidebar: auto
   ```
 
 ## Array
-  数组1
+  数组12
 ## find
 
 ## filter
