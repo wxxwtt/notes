@@ -42,7 +42,7 @@ sidebar: auto
   ```
 
 ## Array
-  数组123456
+  数组
 ## find
 
 ## filter
