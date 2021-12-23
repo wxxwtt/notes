@@ -11,6 +11,6 @@ module.exports = {
     sidebar: {
       displayAllHeaders: true // 默认值：false  显示所有页面的标题链接
     },
-    lastUpdated: 'Last Updated',
+    lastUpdated: 'Last Updated'
   }	
 }
