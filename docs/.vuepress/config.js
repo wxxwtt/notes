@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Hello VuePress',
   description: 'Just playing around',
-  base: './',
+  base: '/notes/',
   themeConfig: {
     nav: [
       { text: 'External', link: 'https://google.com', target:'_self', rel:'' },
