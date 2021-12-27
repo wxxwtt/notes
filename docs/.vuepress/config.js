@@ -2,6 +2,23 @@ module.exports = {
   title: 'Hello VuePress',
   description: 'Just playing around',
   base: '/notes/',
+  plugins: [
+    ['vuepress-plugin-code-copy', {
+        color: '#fff',
+        // backgroundTransition: Boolean,
+        // backgroundColor: String,
+        // successText: String
+    }],
+    ['@vuepress/last-updated'],
+    {
+      transformer: (timestamp, lang) => {
+        // 不要忘了安装 moment
+        const moment = require('moment')
+        moment.locale('zh-cn')
+        return moment(timestamp).format('YYYY-MM-DD hh:mm:ss')
+      }
+    }
+],
   themeConfig: {
     nav: [
       { text: 'External', link: 'https://google.com', target:'_self', rel:'' },

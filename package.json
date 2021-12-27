@@ -11,5 +11,9 @@
     "docs:build": "vuepress build docs",
     "build": "vuepress build docs",
     "deploy": "bash deploy.sh"
+  },
+  "dependencies": {
+    "moment": "^2.29.1",
+    "vuepress-plugin-code-copy": "^1.0.6"
   }
 }
