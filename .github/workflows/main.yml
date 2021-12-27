@@ -15,4 +15,4 @@ jobs:
         TARGET_REPO: wxxwtt/notes
         TARGET_BRANCH: gh_pages
         BUILD_SCRIPT: yarn && yarn build
-        BUILD_DIR: blog/.vuepress/dist/
+        BUILD_DIR: docs/.vuepress/dist/
