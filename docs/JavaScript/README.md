@@ -127,7 +127,42 @@ sidebar: auto
 
 
 
-## find
+## Vue相关面试题
+  ### 1. vue的生命周期
+  * `beforeCreate` 组件初始化之后 进行数据侦听和事件/侦听器的配置之前同步调用
+
+  * `created` 组件创建完成之后立即调用 在这一步中，实例已完成对选项的处理，意味着以下内容已被配置完毕：数据侦听、计算属性、方法、事件/侦听器的回调函数。然而，挂载阶段还没开始，且 $el property 目前尚不可用。不能获取dom
+  * `beforeMount`  在挂载之前被调用 相关的 `render` 函数首次被调用。
+  * `mounted` 实例被挂载之后调用, 可以操作操作dom了 但是不保证所有的子组件也都挂载完成 如果要保证所有的是视图都渲染完毕在执行某些操作 可以在 `mount` 中使用 `$nextTick`
+  ```javascript
+    mount: funciton () {
+      this.$nextTick(() => {
+        // 仅在整个视图都被渲染之后才会运行的代码
+      })
+    }
+  ```
+
+  * `beforeUpdate`
+    数据更新之后 dom更新之前被调用 适合在dom被更新之前访问它. 如移除手动添加的事件监听 
+
+  * `updated`
+    dom更新完毕之后被调用 但不会保证所有的子组件也都被重新渲染完毕, 如果你希望整个视图都渲染完毕, 可以再`update` 里使用`$nextTick`
+    ```javascript
+      updated: funciton () {
+        this.$nextTick(() => {
+          // 仅在整个视图都被渲染之后才会运行的代码
+        })
+      }
+    ```
+
+  * `activated`
+    被`keep-alive`缓存的组件激活时使用
+  * `deactivated`
+    被`keep-alive`缓存的组件失活时使用
+  * `beforeDestroy`
+    实例销毁之前调用, 实例仍可以使用
+  * `destory`
+    实例销毁之后调用
 
 ## filter
 
