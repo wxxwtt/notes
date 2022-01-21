@@ -164,5 +164,62 @@ sidebar: auto
   * `destory`
     实例销毁之后调用
 
+  ### 2. 父子组件的渲染顺序
+  
+  父 `beforeCreate` ---> 父 `created` ---> 父 `beforeMount` ---> 子 `beforeCreate` ---> 子 `created` ---> 子 `beforeMount`
+   ---> 子 `mounted` ---> 父 `mounted` ---> 父 `beforeUpdate` ---> 子 `beforeUpdate` ---> 子 `updated` ---> 父 `updated` ---> 父 `beforeDestroy` ---> 子 `beforeDeatroy` ---> 子 `destoryed` ---> 父 `destroyed`
+
+   * 如果父组件没有向子组件传递数据 子组件修改自身的数据 则不会触发父组件的`beforeUpdate` 和 `updated`
+
+  ### 3. 组件通信
+  1. 父子组件通信
+  父组件通过自定义属性传递 子组件通过`props`进行接收
+
+  `father.vue`
+  ```javascript
+    <HelloWorld
+      msg="Welcome to Your Vue.js App"
+      :channel="channel"
+      />
+  ```
+  `son.vue`
+  ```javascript
+    props: {
+      msg: String,
+      channel: String
+    }
+  ```
+  如果子组件想要修改父组件传递过来的数据, 不要直接修改 因为这会变得很难维护, 有可能多个地方使用了父组件传递值,
+  然可以使用 父组件向子组件传递一个自定义的方法, 子组件通过`$emit`来触发传递过来的自定义方法
+  `father.vue`
+  ```javascript
+    <HelloWorld
+      msg="Welcome to Your Vue.js App"
+      :channel="channel"
+      @changeChannel="changeChannel"
+      />
+
+      methods: {
+        changeChannel (msg) {
+          this.channel = msg
+        }
+      }
+  ```
+  `son.vue`
+  ```javascript
+    props: {
+      msg: String,
+      channel: String
+    }
+    methods: {
+      clickChannel () {
+        this.$emit('changeChannel', '国际要闻')
+      }
+    }
+  ```
+  兄弟组件通信 可以使用 `eventBus`  `eventBus.$emit('emitHandle')`触发  `eventBus.$on('emitHandle')监听`
+  
+
+
 ## filter
 
