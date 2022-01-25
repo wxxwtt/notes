@@ -217,7 +217,7 @@ sidebar: auto
       }
     }
   ```
-  兄弟组件通信 可以使用 `eventBus`  `eventBus.$emit('emitHandle')`触发  `eventBus.$on('emitHandle')监听`
+  兄弟组件通信 可以使用 `eventBus`  `eventBus.$emit('handle')`触发  `eventBus.$on('handle')监听`  `eventBus.$off('handle')` 移除监听
   
 
 
