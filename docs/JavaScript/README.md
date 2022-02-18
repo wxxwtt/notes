@@ -250,6 +250,29 @@ sidebar: auto
   * JS高级里有说 要比较相等性之前，不能将null和undefined转换成其他任何值。
 
     所以进一步得出 上面的运算过程如下  `false` 会被隐式的转换为 0  即 `undefined == 0 和 null == 0` 结果为 `false` 因为`undefined和null自身没有任何方法` 无法被类型转换 
+
+
+## ios 和 android 在移动端端的兼容性问题
+  1像素边框
+  .border {
+    bottom:0;
+    left:0;
+    content: '';
+    width:100%;
+    height:1px;
+    border-top: 1px solid #000;
+    transform: scaleY (0.5);
+  }
+
+  时间格式
+  ios 不支持 '2021-02-28 9:00'  可以将其转换为 '2021-02-28 9:00'.replace(/-/g, '/');
+
+  ios 页面滚动不流畅 可以设置div 设置 css 属性
+   .box : {
+      -webkit-overflow-scrolling: touch; 
+   }
+
+
   
    
 
